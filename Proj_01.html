@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Navbar</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+</head>
+<body>
+  
+  <!--Navbar-->
+  <nav>
+    <button class="_burger">menu</button>
+    <div class="nav-left">
+      <ul class="main-menu">
+        <button class="close">x</button>
+        <li><a href="" hreft="#">item1</a></li>
+        <li><a href="" hreft="#">item2</a></li>
+        <li><a href="" hreft="#">item3</a></li>
+        <li><a href="" hreft="#">item4</a></li>
+        <li><a href="" hreft="#">item5</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!--//Navbar-->
+  
+  <script>
+    const nav = document.querySelector('nav'),
+    btn_nv = nav.querySelector("button._burger"),
+    btn_x = nav.querySelector("button.close")
+    navLeft = nav.querySelector(".nav-left"),
+    _menu = nav.querySelector("ul.main-menu");
+    
+    btn_nv.addEventListener('click', function(){
+      navLeft.classList.add('show');
+      _menu.classList.add('right');
+      _menu.classList.remove('left');
+    });
+    
+    navLeft.addEventListener('click', function(x){
+      if(x.target === btn_x || x.target === navLeft){
+        setTimeout(()=>{
+          navLeft.classList.remove('show');
+        }, 800);
+        _menu.classList.add('left');
+        _menu.classList.remove('right');
+      }
+    });
+  </script>
+</body>
+</html>
